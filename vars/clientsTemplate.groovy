@@ -31,8 +31,7 @@ def call(Map parameters = [:], body) {
                         secretVolume(secretName: 'arts01-secret', mountPath: '/home/jenkins/.arts01'),
                         secretVolume(secretName: 'jenkins-docker-cfg', mountPath: '/home/jenkins/.docker'),
                         secretVolume(secretName: 'jenkins-hub-api-token', mountPath: '/home/jenkins/.apitoken'),
-                        secretVolume(secretName: 'jenkins-ssh-config', mountPath: '/root/.ssh',
-                        items:[[key: 'id_rsa', value: 'id_rsa', mode: 256], [key: 'id_rsa.pub', value: 'id_rsa.pub', mode: 256], [key: 'id_rsa_adpauto', value: 'id_rsa_adpauto', mode: 256]]),
+                        secretVolume(secretName: 'jenkins-ssh-config', mountPath: '/root/.ssh', items:[[key: 'id_rsa', value: 'id_rsa', mode: 256], [key: 'id_rsa.pub', value: 'id_rsa.pub', mode: 256], [key: 'id_rsa_adpauto', value: 'id_rsa_adpauto', mode: 256]]),
                         hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')],
                 envVars: [[key: 'DOCKER_HOST', value: 'unix:/var/run/docker.sock'], [key: 'DOCKER_CONFIG', value: '/home/jenkins/.docker/']]) {
             body()
