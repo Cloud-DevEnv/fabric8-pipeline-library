@@ -6,7 +6,7 @@ def call(Map parameters = [:], body) {
     def defaultLabel = "halyard.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_').replace('/', '_')
     def label = parameters.get('label', defaultLabel)
 
-    def halyardImage = parameters.get('halyardImage', 'gcr.io/spinnaker-marketplace/halyard:stable')
+    def halyardImage = parameters.get('halyardImage', 'gcr.io/spinnaker-marketplace/halyard:1.6.0')
     def clientsImage = parameters.get('clientsImage', 'armdocker.rnd.ericsson.se/proj_adp/fabric8/builder-clients:0.14-1')
     def inheritFrom = parameters.get('inheritFrom', 'base')
    
